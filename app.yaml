@@ -2,16 +2,12 @@ application: osqa-test
 version: 1
 runtime: python27
 api_version: 1
-threadsafe: false
+threadsafe: true
 
 builtins:
 - appstats: on
 
 handlers:
-- url: /remote_api
-  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
-  login: admin
-
 - url: /media
   static_dir: media
 
@@ -24,7 +20,7 @@ handlers:
   upload: robots.txt
 
 - url: /.*
-  script: main.py
+  script: main.application
 
 libraries:
   - name: django

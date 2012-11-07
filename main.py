@@ -42,15 +42,7 @@ signal.connect(log_exception, django.core.signals.got_request_exception)
 # Unregister the rollback event handler.
 signal.disconnect(django.db._rollback_on_exception, django.core.signals.got_request_exception)
 
+application = django.core.handlers.wsgi.WSGIHandler()
 
-def main():
-    # Create a Django application for WSGI.
-    application = django.core.handlers.wsgi.WSGIHandler()
-
-    # Run the WSGI CGI handler with that application.
-    util.run_wsgi_app(application)
-
-if __name__ == '__main__':
-    main()
 
 
