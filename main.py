@@ -8,7 +8,7 @@ for k in [k for k in sys.modules if k.startswith('django')]:
     del sys.modules[k]
 
 # You can change this if you'd like.
-use_library('django', '1.2')
+use_library('django', '1.3')
 
 # Must set this env var before importing any part of Django
 # 'project' is the name of the project created with django-admin.py
@@ -30,6 +30,7 @@ sys.modules['memcache'] = memcache
 
 settings._target = None
 
+
 def log_exception(*args, **kwds):
     logging.exception('Exception in request:')
 
@@ -40,6 +41,7 @@ signal.connect(log_exception, django.core.signals.got_request_exception)
 
 # Unregister the rollback event handler.
 signal.disconnect(django.db._rollback_on_exception, django.core.signals.got_request_exception)
+
 
 def main():
     # Create a Django application for WSGI.

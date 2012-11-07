@@ -15,9 +15,9 @@ USE_I18N = True
 USE_L10N = True
 
 MIDDLEWARE_CLASSES = (
+    'google.appengine.ext.ndb.django_middleware.NdbDjangoMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'middleware.FacebookMiddleware',
     'google.appengine.ext.appstats.recording.AppStatsDjangoMiddleware',
 )
 
