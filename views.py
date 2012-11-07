@@ -6,12 +6,12 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 
 from models import Post
-from forms import GuestbookForm
+from forms import PostForm
 
 
 def index(request):
     query = Post.gql('ORDER BY date DESC')
-    form = GuestbookForm()
+    form = PostForm()
     return render_to_response('index.html',
                             {'posts': query.fetch(20),
                              'form': form
@@ -20,8 +20,11 @@ def index(request):
 
 
 def sign(request):
-    form = GuestbookForm(request.POST)
+    form = PostForm(request.POST)
     if form.is_valid():
-        form.save()
+#        import pdb; pdb.set_trace()
+        post = Post(author=form.cleaned_data['author'],
+                    message=form.cleaned_data['message'])
+        post.put()
 
     return HttpResponseRedirect('/')

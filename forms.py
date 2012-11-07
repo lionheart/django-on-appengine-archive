@@ -1,7 +1,7 @@
 from models import Post
-from google.appengine.ext.db import djangoforms
+from django import forms
 
 
-class GuestbookForm(djangoforms.ModelForm):
-    class Meta:
-        model = Post
+class PostForm(forms.Form):
+    author = forms.CharField(required=False)
+    message = forms.CharField()

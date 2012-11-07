@@ -1,7 +1,7 @@
-from google.appengine.ext import db
+from google.appengine.ext import ndb
 
 
-class Post(db.Model):
-    author = db.UserProperty()
-    message = db.StringProperty(required=True)
-    date = db.DateTimeProperty(auto_now_add=True)
+class Post(ndb.Model):
+    author = ndb.StringProperty()
+    message = ndb.StringProperty(required=True)
+    date = ndb.DateTimeProperty(auto_now_add=True)
