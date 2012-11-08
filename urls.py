@@ -1,7 +1,7 @@
-from django.conf.urls.defaults import *
+from django.conf.urls.defaults import patterns, url
 
 urlpatterns = patterns('',
-    url(r'^$', 'views.index'),
-    url(r'^sign$', 'views.sign'),
+    url(r'^$', 'guestbook.views.index'),
+    url(r'^sign$', 'guestbook.views.sign'),
 )
 

@@ -2,19 +2,20 @@
 
 {%block content%}
     {% if posts %}
-      {% for post in posts %}
-        {% if post.author %}
-          <em>{{ post.author }}</em> wrote:<br/>
-        {% else %}
-          <em>An anonymous person</em> wrote:<br/>
-        {% endif %}
-        {{ post.message }}<br/><br/>
-      {% endfor %}
+        {% for post in posts %}
+            {% if post.author %}
+                <em>{{ post.author }}</em> wrote:<br/>
+            {% else %}
+                <em>An anonymous person</em> wrote:<br/>
+            {% endif %}
+            {{ post.message }}<br/><br/>
+        {% endfor %}
     {% endif %}
     <form action="/sign" method="post">
-      <table>
-        {{ form.as_table }}
-      </table>
-      <div><input type="submit" value="Sign Guestbook"></div>
+        {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>
+        <div><input type="submit" value="Sign Guestbook"></div>
     </form>
 {%endblock%}
