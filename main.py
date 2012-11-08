@@ -8,7 +8,7 @@ for k in [k for k in sys.modules if k.startswith('django')]:
     del sys.modules[k]
 
 # You can change this if you'd like.
-use_library('django', '1.3')
+use_library('django', '1.4')
 
 # Must set this env var before importing any part of Django
 # 'project' is the name of the project created with django-admin.py
@@ -40,7 +40,8 @@ signal = django.dispatch.Signal()
 signal.connect(log_exception, django.core.signals.got_request_exception)
 
 # Unregister the rollback event handler.
-signal.disconnect(django.db._rollback_on_exception, django.core.signals.got_request_exception)
+signal.disconnect(django.db._rollback_on_exception,
+                  django.core.signals.got_request_exception)
 
 application = django.core.handlers.wsgi.WSGIHandler()
 

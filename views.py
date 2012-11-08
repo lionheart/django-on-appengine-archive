@@ -1,6 +1,5 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
-from google.appengine.api import users
 
 from models import Post
 from forms import PostForm
