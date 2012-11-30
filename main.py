@@ -2,9 +2,6 @@ import logging
 import os
 import sys
 
-# You can change this if you'd like.
-#use_library('django', '1.4')
-
 # Must set this env var before importing any part of Django
 # 'project' is the name of the project created with django-admin.py
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
@@ -22,7 +19,6 @@ sys.modules['memcache'] = memcache
 
 settings._target = None
 
-
 def log_exception(*args, **kwds):
     logging.exception('Exception in request:')
 
@@ -36,6 +32,4 @@ signal.disconnect(django.db._rollback_on_exception,
                   django.core.signals.got_request_exception)
 
 application = django.core.handlers.wsgi.WSGIHandler()
-
-
 

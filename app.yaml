@@ -1,4 +1,4 @@
-application: django-on-abbengine
+application: django-on-appengine
 version: 1
 runtime: python27
 api_version: 1
@@ -8,12 +8,12 @@ builtins:
 - appstats: on
 
 handlers:
-- url: /media
-  static_dir: media
+- url: /static
+  static_dir: static
 
 - url: /favicon.ico
-  static_files: media/img/favicon.ico
-  upload: media/img/favicon.ico
+  static_files: static/img/favicon.ico
+  upload: static/img/favicon.ico
 
 - url: /robots.txt
   static_files: robots.txt

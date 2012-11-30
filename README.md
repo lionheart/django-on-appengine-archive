@@ -1,10 +1,6 @@
 Django on App Engine
 ===================
 
-Demo
-------
-http://django-on-abbengine.appspot.com/
-
 Installation
 ----------
 1. Download the App Engine SDK.
